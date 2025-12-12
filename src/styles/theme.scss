@@ -1,0 +1,51 @@
+@use "tailwindcss";
+
+// SCSS variables (para reaproveitar no globals.scss)
+$bg: #0A0F0D;
+$bg-alt: #121719;
+$surface: #181F24;
+
+$acid-green: #39FF14;
+$glitch-aqua: #00FFC6;
+$glitch-purple: #7B00FF;
+$glitch-magenta: #be00e4;
+
+$mint-mutated: #1BFF90;
+$glitch-blue:  #0099FF;
+$glitch-pink:  #FF005C;
+$metal-noise:  #6B6B6B;
+$organic-dark: #0D2520;
+
+$success: #29E87F;
+$warning: #F0FF00;
+$error:   #FF2E63;
+
+$font-primary: 'Share Tech Mono', monospace;
+$font-glitch:  'VT323', monospace;
+
+// --------------------------------------
+// Tailwind tokens
+// --------------------------------------
+@theme {
+  --color-bg: #{$bg};
+  --color-bg-alt: #{$bg-alt};
+  --color-surface: #{$surface};
+
+  --color-acid-green: #{$acid-green};
+  --color-glitch-aqua: #{$glitch-aqua};
+  --color-glitch-purple: #{$glitch-purple};
+  --color-glitch-magenta: #{$glitch-magenta};
+
+  --color-mint-mutated: #{$mint-mutated};
+  --color-glitch-blue: #{$glitch-blue};
+  --color-glitch-pink: #{$glitch-pink};
+  --color-metal-noise: #{$metal-noise};
+  --color-organic-dark: #{$organic-dark};
+
+  --color-success: #{$success};
+  --color-warning: #{$warning};
+  --color-error: #{$error};
+
+  --font-primary: #{$font-primary};
+  --font-glitch: #{$font-glitch};
+}

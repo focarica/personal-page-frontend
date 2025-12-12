@@ -1,30 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import "tailwindcss";
-
-#sub-header {
-    span {
-        position: relative;        
-        display: inline-block;
-        text-align: center;
-        white-space: nowrap;
-        cursor: pointer;
-        
-        &::before {
-            content: '';
-            position: absolute;
-            bottom: -0.1em;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, #00ffff);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        &:hover::before,
-        &.active::before {
-            transform: scaleX(1);
-        }
-    }
-}
+@import './styles/theme.scss';
+@import './styles/global.scss';
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');

@@ -1,0 +1,50 @@
+@use './theme';
+
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-acid-green);
+  font-family: var(--font-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+
+// --------------------------------------
+// Mixins (apenas SCSS, não viram utilities)
+// --------------------------------------
+@mixin neon-glow($color) {
+  text-shadow:
+    0 0 4px $color,
+    0 0 8px $color;
+}
+
+@mixin neon-strong($color) {
+  text-shadow:
+    0 0 6px $color,
+    0 0 12px $color,
+    0 0 24px $color;
+}
+
+@mixin glitch-rgb {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &::before {
+    color: var(--color-glitch-pink);
+    transform: translate(-2px, -1px);
+  }
+
+  &::after {
+    color: var(--color-glitch-blue);
+    transform: translate(2px, 1px);
+  }
+}
