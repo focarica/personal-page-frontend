@@ -2,7 +2,8 @@
     Artur Sousa<sub class="pt-[0.8em] text-[0.5em] font-glitch">dev</sub>
 </div>
 
-<div id="sub-header" class="flex justify-center items-center gap-1 md:gap-5 bg-bg-alt text-metal-noise text-[0.9em] md:text-[1.2em] h-[4vh]">
+
+<div id="sub-header" class="flex justify-center items-center gap-2 md:gap-6 bg-bg-alt text-text-muted text-[0.9em] md:text-[1.1em] h-[4vh]">
   @for (item of navItems; track $index) {
     <span 
       class="nav-item px-2 md:px-4 text-lg md:text-xl"
@@ -16,4 +17,25 @@
 
   }   
 </div>
+
+<div id="main-content" class="flex flex-col h-screen pl-4 pt-[4vh] pr-4 md:pl-10 md:pr-10">
+  <div id="summary" class="text-lg md:text-2xl text-text-secondary leading-relaxed max-w-5xl">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit assumenda labore dolorum minus nesciunt quam repellendus praesentium. Distinctio quam est, quis reprehenderit animi deserunt sapiente eveniet quibusdam quas voluptatum accusantium!
+  </div>
+  <span class="pt-[8vh] text-2xl md:text-4xl font-primary text-text-primary tracking-wide">Recent Posts</span>
+  
+  <div id="post-containers" class="pt-[1vh]">
+    @for (post of mockedPosts; track post.id) {
+      <div id="post" class="flex flex-col pt-6">
+        <span class="text-xs text-text-muted">{{post.date}}</span>
+
+        <span id="post-title" class="text-xl text-glitch-blue-soft font-medium">{{post.title}}</span>
+
+        <span class="text-text-secondary leading-relaxed">{{post.description}}</span>
+      </div>
+  }
+  </div>
+  
+</div>
+
 <router-outlet></router-outlet>

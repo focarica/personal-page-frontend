@@ -1,20 +1,25 @@
 @use "tailwindcss";
 
 // SCSS variables (para reaproveitar no globals.scss)
-$bg: #0A0F0D;
+$bg: #181F24;
 $bg-alt: #121719;
-$surface: #181F24;
 
-$acid-green: #39FF14;
 $glitch-aqua: #00FFC6;
-$glitch-purple: #7B00FF;
-$glitch-magenta: #be00e4;
-
 $mint-mutated: #1BFF90;
 $glitch-blue:  #0099FF;
-$glitch-pink:  #FF005C;
 $metal-noise:  #6B6B6B;
 $organic-dark: #0D2520;
+
+// Glitch editorial (soft)
+$glitch-aqua-soft:    #4FD1C5; // aqua dessaturado
+$glitch-purple-soft: #7C6EE6; // roxo mais frio e sério
+$glitch-magenta-soft:#B277C9; // magenta puxando para lilás
+$glitch-blue-soft:   #5AA9E6; // azul leitura-friendly
+$glitch-pink-soft:   #D16BA5; // rosa editorial
+
+$text-primary:   #E6E8EB; // texto principal (não branco puro)
+$text-secondary: #A8B0B8; // subtítulos, meta
+$text-muted:     #7A828A; // datas, legendas
 
 $success: #29E87F;
 $warning: #F0FF00;
@@ -27,25 +32,35 @@ $font-glitch:  'VT323', monospace;
 // Tailwind tokens
 // --------------------------------------
 @theme {
+  /* backgrounds */
   --color-bg: #{$bg};
   --color-bg-alt: #{$bg-alt};
-  --color-surface: #{$surface};
 
-  --color-acid-green: #{$acid-green};
+  /* glitch UI (mantém forte) */
   --color-glitch-aqua: #{$glitch-aqua};
-  --color-glitch-purple: #{$glitch-purple};
-  --color-glitch-magenta: #{$glitch-magenta};
-
   --color-mint-mutated: #{$mint-mutated};
   --color-glitch-blue: #{$glitch-blue};
-  --color-glitch-pink: #{$glitch-pink};
   --color-metal-noise: #{$metal-noise};
   --color-organic-dark: #{$organic-dark};
 
+  /* glitch editorial (novo) */
+  --color-glitch-aqua-soft: #{$glitch-aqua-soft};
+  --color-glitch-purple-soft: #{$glitch-purple-soft};
+  --color-glitch-magenta-soft: #{$glitch-magenta-soft};
+  --color-glitch-blue-soft: #{$glitch-blue-soft};
+  --color-glitch-pink-soft: #{$glitch-pink-soft};
+
+  /* text */
+  --color-text-primary: #{$text-primary};
+  --color-text-secondary: #{$text-secondary};
+  --color-text-muted: #{$text-muted};
+
+  /* status */
   --color-success: #{$success};
   --color-warning: #{$warning};
   --color-error: #{$error};
 
+  /* fonts */
   --font-primary: #{$font-primary};
   --font-glitch: #{$font-glitch};
 }
