@@ -25,8 +25,8 @@ export class App {
   navItems: NavItem[] = [
     { label: 'Home', route: '/home' },
     { label: 'CV', route: '/cv' },
-    { label: 'find me', route: '/find-me' },
-    { label: 'about', route: '/about' }
+    { label: 'Find me', route: '/find-me' },
+    { label: 'About', route: '/about' }
   ];
 
   mockedPosts: Post[] = [
