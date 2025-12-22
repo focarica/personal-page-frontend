@@ -1,4 +1,4 @@
-export class Headers{
+export class PostHeaders{
     id: string
     title: string
     description: string

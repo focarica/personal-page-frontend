@@ -1,67 +1,35 @@
 import { CommonModule } from '@angular/common';
+import {signal} from '@angular/core';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterModule, } from '@angular/router';
-import { Headers } from '../../shared/models/Headers';
-import { HttpService } from '../../core/services/http.service';
-
-
+import { PostHeaders } from '../../shared/models/PostHeaders';
+import { HttpService } from '../../http.service';
 @Component({
   selector: 'app-home-page',
   imports: [CommonModule, RouterModule],
   templateUrl: './home.html',
 })
-export class HomePageComponent{
+export class HomePageComponent implements OnInit{
 
   private httpService = inject(HttpService)
 
-  mockedPosts: Headers[] = [
-  {
-    id: 'git-driven-blogs',
-    title: 'Git-driven blogs: escrevendo sem CMS',
-    description: 'Uma abordagem simples para manter um blog sem banco de dados, usando Git como fonte da verdade.',
-    date: '2025-01-12',
-    tags: ['infra', 'blog', 'git'],
-  },
-  {
-    id: 'nginx-ec2-notes',
-    title: 'Notas práticas sobre Nginx em EC2',
-    description: 'Configurações reais, erros comuns e aprendizados ao usar Nginx em uma instância EC2.',
-    date: '2024-12-03',
-    tags: ['nginx', 'aws', 'infra'],
-  },
-  {
-    id: 'jwt-validation-endpoint',
-    title: 'Validação de JWT sem acoplar segurança',
-    description: 'Como criar um endpoint simples para validar tokens JWT sem interferir na configuração global.',
-    date: '2024-11-28',
-    tags: ['backend', 'security', 'jwt'],
-  },
-  {
-    id: 'learning-bug-bounty',
-    title: 'Migrando de backend para Bug Bounty',
-    description: 'Motivações, roadmap prático e primeiros erros ao estudar segurança ofensiva.',
-    date: '2024-11-10',
-    tags: ['security', 'bug-bounty'],
-  }];
+  postsSummary = signal<PostHeaders[]>([])
 
   constructor(private router: Router) {}
 
+  ngOnInit(): void {
+    this.getAllPosts()
+  }
+  
   navigate(route: string): void {
     this.router.navigate([route]);
   }
 
-  getPost(id: string){
-    this.httpService.findPost(id).subscribe(
-      response => {
-        console.log(response)
-      }
-    )
-  }
 
   getAllPosts(){
     this.httpService.findAllPosts().subscribe(
       response => {
-        console.log(response)
+        this.postsSummary.set(response)
       }
     )
   }

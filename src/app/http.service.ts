@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Post } from '../../shared/models/Post';
+import { Post } from './shared/models/Post';
+import { PostHeaders } from './shared/models/PostHeaders';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,6 @@ export class HttpService {
   }
 
   findAllPosts(){
-    return this.http.get<Headers[]>(`${this.apiUrl}/post`)
+    return this.http.get<PostHeaders[]>(`${this.apiUrl}/post`)
   }
 }
