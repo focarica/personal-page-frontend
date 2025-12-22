@@ -1,22 +1,4 @@
-<div class="flex justify-center items-center text-glitch-aqua bg-bg-alt text-[3em] h-[9vh]">
-    Artur Sousa<sub class="pt-[0.8em] text-[0.5em] font-glitch">dev</sub>
-</div>
-
-
-<div id="sub-header" class="flex justify-center items-center gap-2 md:gap-6 bg-bg-alt text-text-muted text-[0.9em] md:text-[1.1em] h-[4vh]">
-  @for (item of navItems; track $index) {
-    <span 
-      class="nav-item px-2 md:px-4 text-lg md:text-xl"
-      routerLink="{{ item.route }}"
-      routerLinkActive="active">
-      {{ item.label }}
-    </span>
-    @if (!$last) {
-      <span class="border-l border-gray-500 h-5 mx-1 md:mx-4"></span>
-    }
-
-  }   
-</div>
+<button class="text-3xl text-white" (click)="getAllPosts()">CLICK</button>
 
 <div id="main-content" class="flex flex-col h-screen pl-4 pt-[4vh] pr-4 md:pl-10 md:pr-10">
   <div id="summary" class="text-lg md:text-2xl text-text-secondary leading-relaxed max-w-5xl">
@@ -35,7 +17,4 @@
       </div>
   }
   </div>
-  
 </div>
-
-<router-outlet></router-outlet>

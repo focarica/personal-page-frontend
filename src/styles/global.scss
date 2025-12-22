@@ -9,19 +9,6 @@ html, body {
 }
 
 
-#sub-header {
-  .nav-item {
-    color: var(--color-text-muted);
-
-    &.active,
-    &:hover {
-      color: var(--color-glitch-aqua);
-      cursor: pointer;
-      font-weight: bold;
-    }
-  }
-}
-
 #post {
   #post-title {
     

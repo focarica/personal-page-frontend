@@ -1,30 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterModule, } from '@angular/router';
-import { Headers } from '../models/Headers';
-import { HttpService } from '../services/http.service';
-
-interface NavItem {
-  label: string;
-  route: string;
-}
+import { Headers } from '../../shared/models/Headers';
+import { HttpService } from '../../core/services/http.service';
 
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-home-page',
   imports: [CommonModule, RouterModule],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+  templateUrl: './home.html',
 })
-export class App {
-  private httpService = inject(HttpService)
+export class HomePageComponent{
 
-  navItems: NavItem[] = [
-    { label: 'Home', route: '/home' },
-    { label: 'CV', route: '/cv' },
-    { label: 'Find me', route: '/find-me' },
-    { label: 'About', route: '/about' }
-  ];
+  private httpService = inject(HttpService)
 
   mockedPosts: Headers[] = [
   {
