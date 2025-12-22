@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit{
 
 
   getAllPosts(){
-    this.httpService.findAllPosts().subscribe(
+    this.httpService.findAllPostsSummaryOrdered().subscribe(
       response => {
         this.postsSummary.set(response)
       }

@@ -12,10 +12,14 @@ export class HttpService {
   readonly apiUrl: string = "http://localhost:8080"
 
   findPost(id: string){
-    return this.http.get<Post>(`${this.apiUrl}/post/${id}`)
+    return this.http.get<Post>(`${this.apiUrl}/post/${id}`).subscribe()
   }
 
-  findAllPosts(){
-    return this.http.get<PostHeaders[]>(`${this.apiUrl}/post`)
+  findAllPostsSummary(){
+    return this.http.get<PostHeaders[]>(`${this.apiUrl}/api/posts`)
+  }
+
+  findAllPostsSummaryOrdered(){
+    return this.http.get<PostHeaders[]>(`${this.apiUrl}/api/posts?sort_by=date`)
   }
 }
