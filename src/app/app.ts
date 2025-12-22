@@ -1,19 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterModule, } from '@angular/router';
+import { Headers } from '../models/Headers';
+import { HttpService } from '../services/http.service';
 
 interface NavItem {
   label: string;
   route: string;
 }
 
-interface Post {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  tags: string[];
-}
 
 @Component({
   selector: 'app-root',
@@ -22,6 +17,8 @@ interface Post {
   styleUrl: './app.scss'
 })
 export class App {
+  private httpService = inject(HttpService)
+
   navItems: NavItem[] = [
     { label: 'Home', route: '/home' },
     { label: 'CV', route: '/cv' },
@@ -29,7 +26,7 @@ export class App {
     { label: 'About', route: '/about' }
   ];
 
-  mockedPosts: Post[] = [
+  mockedPosts: Headers[] = [
   {
     id: 'git-driven-blogs',
     title: 'Git-driven blogs: escrevendo sem CMS',
@@ -59,10 +56,25 @@ export class App {
     tags: ['security', 'bug-bounty'],
   }];
 
-
   constructor(private router: Router) {}
 
   navigate(route: string): void {
     this.router.navigate([route]);
+  }
+
+  getPost(id: string){
+    this.httpService.findPost(id).subscribe(
+      response => {
+        console.log(response)
+      }
+    )
+  }
+
+  getAllPosts(){
+    this.httpService.findAllPosts().subscribe(
+      response => {
+        console.log(response)
+      }
+    )
   }
 }
