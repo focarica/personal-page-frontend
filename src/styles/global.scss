@@ -8,6 +8,10 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+.nav-item.active {
+  color: theme('colors.glitch-aqua');
+  font-weight: 800;
+}
 
 #post {
   #post-title {

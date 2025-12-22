@@ -15,8 +15,8 @@ interface NavItem {
 export class NavBarComponent{
 
     navItems: NavItem[] = [
-        { label: 'Home', route: '/home' },
-        { label: 'CV', route: '/cv' },
+        { label: 'Home', route: '/' },
+        { label: 'CV', route: '/curriculum' },
         { label: 'Find me', route: '/find-me' },
         { label: 'About', route: '/about' }
     ];
