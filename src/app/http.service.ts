@@ -12,7 +12,7 @@ export class HttpService {
   readonly apiUrl: string = "http://localhost:8080"
 
   findPost(id: string){
-    return this.http.get<Post>(`${this.apiUrl}/post/${id}`).subscribe()
+    return this.http.get<Post>(`${this.apiUrl}/api/post/${id}`)
   }
 
   findAllPostsSummary(){
