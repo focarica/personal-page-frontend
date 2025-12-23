@@ -9,9 +9,132 @@ html, body {
 }
 
 .nav-item.active {
-  color: theme('colors.glitch-aqua');
+  color: var(--color-glitch-aqua);
   font-weight: 800;
 }
+
+.markdown-body {
+  font-family: var(--font-body);
+  position: relative;
+  background: transparent;
+  color: var(--color-text-secondary);
+
+  min-width: 200px;
+  max-width: 720px;
+  margin: 0 auto;
+
+  padding: 0;
+  line-height: 1.75;
+  font-size: 1.05rem;
+
+  h1:first-of-type {
+    margin-top: 0;
+    padding-right: 5.5rem; 
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--color-glitch-blue-soft);
+  }
+  
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-primary);
+    color: var(--color-glitch-blue-soft);
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    margin: 1.2rem 0;
+  }
+
+  blockquote {
+    border-left: 3px solid var(--color-glitch-aqua);
+    padding-left: 1rem;
+    margin: 2rem 0;
+
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  pre {
+    background: var(--color-bg-alt);
+    padding: 1rem 1.2rem;
+    border-radius: 6px;
+    overflow-x: auto;
+  }
+
+  code {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.95em;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  ul,
+  ol {
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin: 0.5rem 0;
+  }
+
+
+  input[type="checkbox"] {
+    margin-right: 0.6rem;
+    transform: translateY(1px);
+  }
+
+  li.task-list-item {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ul.task-list {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .markdown-body {
+    font-size: 1rem;
+  }
+}
+
+.post-date {
+  font-family: var(--font-primary);
+  position: absolute;
+  right: 0;
+
+  transform: translateY(2rem);
+
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
 
 #post {
   #post-title {

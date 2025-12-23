@@ -27,6 +27,8 @@ $error:   #FF2E63;
 
 $font-primary: 'Share Tech Mono', monospace;
 $font-glitch:  'VT323', monospace;
+$font-body: 'Inter', system-ui, sans-serif;
+
 
 // --------------------------------------
 // Tailwind tokens
@@ -63,4 +65,5 @@ $font-glitch:  'VT323', monospace;
   /* fonts */
   --font-primary: #{$font-primary};
   --font-glitch: #{$font-glitch};
+  --font-body: #{font-body};
 }

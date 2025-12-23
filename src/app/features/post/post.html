@@ -1,1 +1,26 @@
-<h1 class="text-white">Hellooo</h1>
+<article class="mx-auto max-w-3xl px-6 pt-[5vh] pb-[10vh] text-text-secondary leading-relaxed">
+  @if (post()) {
+
+    <!-- Header do post -->
+    <header class="mb-6">
+
+      <!-- Return -->
+      <button
+        class="mb-3 flex items-center gap-1 text-md text-text-muted hover:text-glitch-aqua transition"
+        (click)="goBack()"
+        aria-label="Voltar">
+        ← back
+      </button>
+    </header>
+
+    <!-- Conteúdo -->
+    <section class="markdown-body">
+        <span class="post-date">
+            {{ post()!.headers.date }}
+        </span>
+
+        <markdown [data]="post()!.content"></markdown>
+    </section>
+
+  }
+</article>
