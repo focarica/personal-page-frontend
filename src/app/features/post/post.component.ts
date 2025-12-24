@@ -5,11 +5,11 @@ import { HttpService } from '../../http.service';
 import { Post } from '../../shared/models/Post';
 import { Subscription } from 'rxjs';
 import { Location } from '@angular/common';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
   selector: 'app-post-page',
-  imports: [CommonModule, RouterModule, MarkdownModule],
+  imports: [CommonModule, RouterModule, MarkdownComponent],
   templateUrl: './post.html',
 })
 export class PostPageComponent implements OnInit{

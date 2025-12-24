@@ -1,5 +1,6 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, throwError } from 'rxjs';
 import { Post } from './shared/models/Post';
 import { PostHeaders } from './shared/models/PostHeaders';
 
@@ -11,15 +12,27 @@ export class HttpService {
   // readonly apiUrl: string = ""
   readonly apiUrl: string = "http://localhost:8080"
 
-  findPost(id: string){
-    return this.http.get<Post>(`${this.apiUrl}/api/post/${id}`)
+  findPost(id: string) {
+    return this.http.get<Post>(`${this.apiUrl}/api/posts/${id}`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError(() => error);
+      })
+    );
   }
 
-  findAllPostsSummary(){
-    return this.http.get<PostHeaders[]>(`${this.apiUrl}/api/posts`)
+  findAllPostsSummary() {
+    return this.http.get<PostHeaders[]>(`${this.apiUrl}/api/posts`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError(() => error);
+      })
+    );
   }
 
-  findAllPostsSummaryOrdered(){
-    return this.http.get<PostHeaders[]>(`${this.apiUrl}/api/posts?sort_by=date`)
+  findAllPostsSummaryOrdered() {
+    return this.http.get<PostHeaders[]>(`${this.apiUrl}/api/posts?sort_by=date`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError(() => error);
+      })
+    );
   }
 }
