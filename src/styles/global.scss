@@ -15,7 +15,6 @@ html, body {
 
 .markdown-body {
   font-family: var(--font-body);
-  position: relative;
   background: transparent;
   color: var(--color-text-secondary);
 
@@ -27,14 +26,21 @@ html, body {
   line-height: 1.75;
   font-size: 1.05rem;
 
+  .post-date {
+    font-family: var(--font-primary);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  /* Primeiro título do markdown */
   h1:first-of-type {
     margin-top: 0;
-    padding-right: 5.5rem; 
     font-size: 2.4rem;
     font-weight: 600;
     color: var(--color-glitch-blue-soft);
   }
-  
+
   h1,
   h2,
   h3 {
@@ -65,7 +71,6 @@ html, body {
     border-left: 3px solid var(--color-glitch-aqua);
     padding-left: 1rem;
     margin: 2rem 0;
-
     color: var(--color-text-muted);
     font-style: italic;
   }
@@ -101,7 +106,6 @@ html, body {
     margin: 0.5rem 0;
   }
 
-
   input[type="checkbox"] {
     margin-right: 0.6rem;
     transform: translateY(1px);
@@ -122,19 +126,6 @@ html, body {
     font-size: 1rem;
   }
 }
-
-.post-date {
-  font-family: var(--font-primary);
-  position: absolute;
-  right: 0;
-
-  transform: translateY(2rem);
-
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  white-space: nowrap;
-}
-
 
 #post {
   #post-title {
