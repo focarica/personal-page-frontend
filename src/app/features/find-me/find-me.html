@@ -1,1 +1,88 @@
-<h1 class="text-white">Hellooo</h1>
+ <section class="mx-auto max-w-3xl px-6 pt-[6vh] pb-[10vh]">
+    <!-- Header -->
+    <header class="mb-10">
+    <button
+        class="mb-3 flex items-center gap-1 text-md text-text-muted hover:text-glitch-aqua hover:cursor-pointer transition"
+        routerLink=""
+        aria-label="Voltar">
+        ← Go back
+    </button>
+    <h1 class="text-3xl md:text-4xl font-semibold text-glitch-blue-soft">
+        Find me
+    </h1>
+    <p class="mt-2 text-text-muted text-sm md:text-base">
+        where I exist online
+    </p>
+    </header>
+
+    <!-- Links -->
+    <ul class="space-y-5">
+    @for (link of links; track link.label) {
+        <li>
+            <a
+                [href]="link.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="
+                    group
+                    flex items-center
+                    rounded-lg
+                    border border-white/10
+                    bg-white/5
+                    px-5 py-4
+                    transition-all duration-200
+                    hover:border-glitch-blue-soft/50
+                    hover:bg-white/10
+                "
+            >
+            
+            <span
+                class="
+                    icon
+                    mr-4
+                    text-white/80
+                    group-hover:text-glitch-blue-soft
+                    transition-colors
+                "
+                [innerHTML]="icons[link.icon]"
+            ></span>
+
+            <!-- Texto -->
+            <span
+                class="
+                    text-base md:text-lg
+                    font-medium
+                    text-white
+                    group-hover:text-glitch-blue-soft
+                    transition-colors
+                "
+            >
+                {{ link.label }}
+            </span>
+
+            <!-- Seta -->
+            <span
+                class="
+                    ml-auto
+                    text-xl
+                    text-white/40
+                    translate-x-0
+                    group-hover:translate-x-1
+                    group-hover:text-glitch-blue-soft
+                    transition-all
+                "
+            >
+                →
+            </span>
+            </a>
+
+        @if (link.hint) {
+            <div class="mt-1 ml-1 text-xs md:text-sm text-text-muted">
+                {{ link.hint }}
+            </div>
+        }
+
+        </li>
+    }
+    </ul>
+</section>
