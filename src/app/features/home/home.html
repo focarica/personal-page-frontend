@@ -5,7 +5,8 @@
     </div>
 
     <span class="text-2xl md:text-4xl font-primary text-text-primary tracking-wide block mb-2 pb-4 border-b border-gray-400">Recent Posts</span>
-    
+    <button routerLink="/error">aaaaaaaaa</button>
+
     <div id="post-containers" class="space-y-0">
       @if(postsSummary().length > 0){
         @for (post of postsSummary(); track post.id) {

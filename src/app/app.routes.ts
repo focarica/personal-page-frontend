@@ -14,6 +14,7 @@ export const routes: Routes = [
     {path: 'find-me', component: FindMeComponent},
     {path: 'about', component: AboutPageComponent},
 
-    { path: 'not-found', component: NotFoundComponent },    
+    { path: 'not-found', component: NotFoundComponent},
+    { path: 'error', component: ErrorComponent},    
     { path: '**', component: NotFoundComponent }
 ];
