@@ -9,6 +9,7 @@ import { PostHeaders } from './shared/models/PostHeaders';
 })
 export class HttpService {
   private http = inject(HttpClient)
+  
   // readonly apiUrl: string = ""
   readonly apiUrl: string = "http://localhost:8080"
 
