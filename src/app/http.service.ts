@@ -1,6 +1,5 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, throwError } from 'rxjs';
 import { Post } from './shared/models/Post';
 import { PostHeaders } from './shared/models/PostHeaders';
 
@@ -14,26 +13,14 @@ export class HttpService {
   readonly apiUrl: string = "http://localhost:8080"
 
   findPost(id: string) {
-    return this.http.get<Post>(`${this.apiUrl}/api/posts/${id}`).pipe(
-      catchError((error: HttpErrorResponse) => {
-        return throwError(() => error);
-      })
-    );
+    return this.http.get<Post>(`${this.apiUrl}/api/posts/${id}`);
   }
 
   findAllPostsSummary() {
-    return this.http.get<PostHeaders[]>(`${this.apiUrl}/api/posts`).pipe(
-      catchError((error: HttpErrorResponse) => {
-        return throwError(() => error);
-      })
-    );
+    return this.http.get<PostHeaders[]>(`${this.apiUrl}/api/posts`);
   }
 
   findAllPostsSummaryOrdered() {
-    return this.http.get<PostHeaders[]>(`${this.apiUrl}/api/posts?sort_by=date`).pipe(
-      catchError((error: HttpErrorResponse) => {
-        return throwError(() => error);
-      })
-    );
+    return this.http.get<PostHeaders[]>(`${this.apiUrl}/api/posts?sort_by=date`);
   }
 }

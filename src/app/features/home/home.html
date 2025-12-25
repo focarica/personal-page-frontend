@@ -5,26 +5,49 @@
     </div>
 
     <span class="text-2xl md:text-4xl font-primary text-text-primary tracking-wide block mb-2 pb-4 border-b border-gray-400">Recent Posts</span>
-    <button routerLink="/error">aaaaaaaaa</button>
 
     <div id="post-containers" class="space-y-0">
-      @if(postsSummary().length > 0){
+      @if (hasError()) {
+        <div class="flex flex-col items-center justify-center text-text-muted text-center">
+          <p class="text-lg text-text-muted pt-[3vh] max-w-xl">
+            Content is currently unavailable.
+            <span class="block text-sm opacity-60 mt-1">
+              Please try again later.
+            </span>
+          </p>
+        </div>
+
+      } @else if (postsSummary().length > 0) {
         @for (post of postsSummary(); track post.id) {
-          <div id="post" class="py-8 border-b border-gray-400 last:border-0 group flex flex-col pt-6">
-            <span class="text-xs text-text-muted">{{post.date}}</span>
+          <article
+            id="post"
+            class="group py-6 border-b border-white/10 last:border-0
+                  flex flex-col gap-1 transition">
 
-            <span id="post-title" [routerLink]="['/posts', post.id]" class="text-xl text-glitch-blue-soft font-medium">{{post.title}}</span>
+            <span class="text-xs text-text-muted tracking-wide">{{ post.date }}</span>
 
-            <span class="text-text-secondary leading-relaxed">{{post.description}}</span>
-          </div>
+            <a
+              [routerLink]="['/posts', post.id]"
+              class="text-xl text-glitch-blue-soft font-medium
+                    group-hover:underline underline-offset-4"
+            >
+              {{ post.title }}
+            </a>
+
+            <p class="text-text-secondary leading-relaxed max-w-xl">{{ post.description }}</p>
+          </article>
         }
-      }@else {
-        <div class="flex flex-col items-center justify-center pt-[6vh] text-text-muted">
-        <span class="text-2xl uppercase tracking-widest opacity-70">nothing here yet</span>
 
-        <span class="mt-2 text-s opacity-50">new posts will appear soon</span>
-      </div>
+      } @else {
+        <div class="flex flex-col items-center justify-center pt-[6vh] text-text-muted text-center">
+          <span class="text-2xl uppercase tracking-widest opacity-60">
+            nothing here yet
+          </span>
+
+          <span class="mt-2 text-sm opacity-50"> new posts will appear soon</span>
+        </div>
       }
+
     </div>
   </div>
 </div>

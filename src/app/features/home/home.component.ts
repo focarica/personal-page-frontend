@@ -14,6 +14,7 @@ export class HomePageComponent implements OnInit{
   private httpService = inject(HttpService)
 
   postsSummary = signal<PostHeaders[]>([])
+  hasError = signal<boolean>(false)
 
   constructor(private router: Router) {}
 
@@ -25,12 +26,16 @@ export class HomePageComponent implements OnInit{
     this.router.navigate([route]);
   }
 
-
-  getAllPosts(){
-    this.httpService.findAllPostsSummaryOrdered().subscribe(
-      response => {
-        this.postsSummary.set(response)
+  getAllPosts() {
+    this.httpService.findAllPostsSummaryOrdered().subscribe({
+      next: post => {
+        this.postsSummary.set(post);
+        this.hasError.set(false) // so pra ter certeza que nao vai dar erro
+      },
+      error: () => {
+        this.postsSummary.set([]);
+        this.hasError.set(true);
       }
-    )
+    });
   }
 }

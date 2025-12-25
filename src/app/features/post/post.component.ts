@@ -39,13 +39,6 @@ export class PostPageComponent implements OnInit{
     this.httpService.findPost(id).subscribe({
       next: post => {
         this.post.set(post);
-      },
-      error: err => {
-        if (err.status === 404) {
-          this.router.navigate(['/not-found']);
-        } else {
-          this.router.navigate(['/error']);
-        }
       }
     })
   }
