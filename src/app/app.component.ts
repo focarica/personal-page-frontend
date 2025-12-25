@@ -7,14 +7,17 @@ interface NavItem {
   route: string;
 }
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterModule, NavBarComponent],
   template: `
-  <app-navbar></app-navbar>
-  <router-outlet></router-outlet>
+  <div class="app-root">
+    <app-navbar />
+    <main class="app-main">
+      <router-outlet />
+    </main>
+  </div>
   `
 })
 export class App {}

@@ -6,6 +6,22 @@ html, body {
   color: var(--color-acid-green);
   font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
+
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.app-root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .nav-item.active {

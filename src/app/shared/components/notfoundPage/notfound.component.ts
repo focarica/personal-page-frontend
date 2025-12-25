@@ -5,7 +5,7 @@ import { RouterModule } from "@angular/router";
   standalone: true,
   imports: [RouterModule],
   template: `
-    <section class="min-h-screen flex justify-start px-6 pt-[12vh]">
+    <section class="min-h-full flex justify-start px-6 pt-[12vh]">
       <div class="flex flex-col items-center text-center max-w-md mx-auto">
 
         <!-- Ilustração -->
