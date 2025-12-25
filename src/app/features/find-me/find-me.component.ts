@@ -45,6 +45,12 @@ export class FindMeComponent implements OnInit{
       url: 'https://x.com/focarica',
       hint: 'twitter & short thoughts',
       icon: 'twitter'
+    },
+    {
+      label: 'Letterboxd',
+      url: 'https://letterboxd.com/Foca1/',
+      hint: 'what I’ve been watching lately',
+      icon: 'letterboxd'
     }
   ];
 
