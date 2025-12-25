@@ -18,6 +18,7 @@ interface FindMeLink {
   templateUrl: './find-me.html',
 })
 export class FindMeComponent implements OnInit{
+  
   icons: Record<string, SafeHtml> = {};
   private sanitizer = inject(DomSanitizer);
 

@@ -16,8 +16,8 @@ export class NavBarComponent{
 
     navItems: NavItem[] = [
         { label: 'Home', route: '/' },
-        { label: 'CV', route: '/curriculum' },
         { label: 'Find me', route: '/find-me' },
-        { label: 'About', route: '/about' }
+        { label: 'About', route: '/about' },
+        { label: 'CV', route: '/curriculum' }
     ];
 }
