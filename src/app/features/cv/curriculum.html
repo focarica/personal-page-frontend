@@ -1,0 +1,96 @@
+<section class="mx-auto max-w-3xl px-6 pt-[6vh] pb-[10vh] space-y-8 text-text-secondary">
+  <!-- Profile -->
+  <header>
+    <button
+        class="mb-3 flex items-center gap-1 text-md text-text-muted hover:text-glitch-aqua hover:cursor-pointer transition"
+        routerLink=""
+        aria-label="Voltar">
+        ← Go back
+    </button>
+    <p class="mt-2 text-glitch-purple-soft text-lg">
+      Backend • Infraestrutura • Segurança
+    </p>
+  </header>
+
+  <!-- Summary -->
+  <section class="max-w-2xl leading-relaxed text-base md:text-lg">
+    <p>
+        Computer Science student focusing on backend, automation, and infrastructure. 
+        Growing interest in information security, systems architecture, and original projects.
+    </p>
+  </section>
+
+  <!-- Stack -->
+  <section class="mb-10">
+    <h2 class="mb-5 text-sm uppercase tracking-wider text-text-muted">
+      Stack principal
+    </h2>
+
+    <div class="flex flex-wrap gap-2">
+      <span class="px-3 py-1 text-sm bg-bg-alt rounded">Java / Spring</span>
+      <span class="px-3 py-1 text-sm bg-bg-alt rounded">Python</span>
+      <span class="px-3 py-1 text-sm bg-bg-alt rounded">Docker</span>
+      <span class="px-3 py-1 text-sm bg-bg-alt rounded">Linux</span>
+      <span class="px-3 py-1 text-sm bg-bg-alt rounded">HTTP / Redes</span>
+      <span class="px-3 py-1 text-sm bg-bg-alt rounded">PostgreSQL</span>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="mb-10">
+    <header class="mb-10">
+      <h2 class="text-2xl font-semibold text-text-primary">
+        Projects
+      </h2>
+
+      <p class="mt-2 text-text-muted max-w-2xl">
+        Personal projects focused on backend, infrastructure, and technical experimentation.
+      </p>
+    </header>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      @for (project of projects; track $index) {
+        <a href="{{project.repoUrl}}">
+        <article
+            class="group rounded-xl border border-border-subtle bg-surface p-5
+                    hover:border-glitch-aqua hover:cursor-pointer transition"
+            
+        >
+
+          <header class="mb-2 flex items-center justify-between">
+            <h3 class="text-lg font-medium text-text-primary">
+              {{ project.name }}
+            </h3>
+          </header>
+
+          <p class="mb-4 text-sm text-text-secondary leading-relaxed">
+            {{ project.description }}
+          </p>
+
+          <footer class="flex flex-wrap gap-2 text-xs text-text-muted">
+            @for (tech of project.tags; track tech) {
+              <span class="rounded-full border border-border-subtle px-2 py-0.5">
+                {{ tech }}
+              </span>
+            }
+          </footer>
+        </article>
+        </a>
+      }
+    </div>
+  </section>
+
+  <!-- Action -->
+  <section>
+    <a
+      href="/assets/cv-artur-sousa.pdf"
+      target="_blank"
+      class="inline-flex items-center gap-2 px-5 py-3 bg-bg-alt
+             text-glitch-aqua font-medium rounded
+             hover:bg-[#1b2429] transition"
+    >
+      Download CV (PDF)
+    </a>
+  </section>
+
+</section>
