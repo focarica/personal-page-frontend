@@ -1,26 +1,25 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Post } from './shared/models/Post';
 import { PostHeaders } from './shared/models/PostHeaders';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpService {
   private http = inject(HttpClient)
-  
-  // readonly apiUrl: string = ""
-  readonly apiUrl: string = "http://localhost:8080"
+
 
   findPost(id: string) {
-    return this.http.get<Post>(`${this.apiUrl}/api/posts/${id}`);
+    return this.http.get<Post>(`${environment.apiBaseUrl}/api/posts/${id}`);
   }
 
   findAllPostsSummary() {
-    return this.http.get<PostHeaders[]>(`${this.apiUrl}/api/posts`);
+    return this.http.get<PostHeaders[]>(`${environment.apiBaseUrl}/api/posts`);
   }
 
   findAllPostsSummaryOrdered() {
-    return this.http.get<PostHeaders[]>(`${this.apiUrl}/api/posts?sort_by=date`);
+    return this.http.get<PostHeaders[]>(`${environment.apiBaseUrl}/api/posts?sort_by=date`);
   }
 }
