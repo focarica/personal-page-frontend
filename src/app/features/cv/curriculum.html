@@ -8,7 +8,7 @@
         ← Go back
     </button>
     <p class="mt-2 text-glitch-purple-soft text-lg">
-      Backend • Infraestrutura • Segurança
+      Backend • Infrastructure • Security
     </p>
   </header>
 
@@ -23,7 +23,7 @@
   <!-- Stack -->
   <section class="mb-10">
     <h2 class="mb-5 text-sm uppercase tracking-wider text-text-muted">
-      Stack principal
+      Stacks
     </h2>
 
     <div class="flex flex-wrap gap-2">
@@ -47,30 +47,33 @@
 
     <div class="grid gap-6 sm:grid-cols-2">
       @for (project of projects; track $index) {
-        <a href="{{project.repoUrl}}">
-        <article
-            class="group rounded-xl border border-border-subtle bg-surface p-5
-                    hover:border-glitch-aqua hover:cursor-pointer transition"
-        >
-
-          <header class="mb-2 flex items-center justify-between">
-            <h3 class="text-lg font-medium text-text-primary">
-              {{ project.name }}
-            </h3>
-          </header>
-
-          <p class="mb-4 text-sm text-text-secondary leading-relaxed">
-            {{ project.description }}
-          </p>
-
-          <footer class="flex flex-wrap gap-2 text-xs text-text-muted">
-            @for (tech of project.tags; track tech) {
-              <span class="rounded-full border border-border-subtle px-2 py-0.5">
-                {{ tech }}
+        <a href="{{project.repoUrl}}" target="_blank" class="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-glitch-aqua">
+          <article
+              class="group rounded-xl border border-border-subtle bg-surface p-6 shadow-sm
+                      hover:shadow-md hover:border-glitch-aqua hover:-translate-y-1
+                      cursor-pointer transition-all"
+          >
+            <header class="mb-4 flex items-center justify-between">
+              <h3 class="text-lg font-medium text-text-primary group-hover:underline pr-2">
+                {{ project.name }}
+              </h3>
+              <span class="text-text-secondary group-hover:text-glitch-aqua transition-all duration-200 flex-shrink-0 ml-auto">
+                →
               </span>
-            }
-          </footer>
-        </article>
+            </header>
+
+            <p class="mb-4 text-sm text-text-secondary leading-relaxed">
+              {{ project.description }}
+            </p>
+
+            <footer class="flex flex-wrap gap-2 text-xs text-text-muted">
+              @for (tech of project.tags; track tech) {
+                <span class="rounded-full border border-border-subtle px-2 py-0.5">
+                  {{ tech }}
+                </span>
+              }
+            </footer>
+          </article>
         </a>
       }
     </div>

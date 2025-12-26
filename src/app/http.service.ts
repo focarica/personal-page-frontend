@@ -12,7 +12,7 @@ export class HttpService {
 
 
   findPost(id: string) {
-    return this.http.get<Post>(`${environment.apiBaseUrl}/api/posts/${id}`);
+    return this.http.get<Post>(`${environment.apiBaseUrl}/posts/${id}`);
   }
 
   findAllPostsSummary() {
@@ -20,6 +20,6 @@ export class HttpService {
   }
 
   findAllPostsSummaryOrdered() {
-    return this.http.get<PostHeaders[]>(`${environment.apiBaseUrl}/api/posts?sort_by=date`);
+    return this.http.get<PostHeaders[]>(`${environment.apiBaseUrl}/posts?sort_by=date`);
   }
 }

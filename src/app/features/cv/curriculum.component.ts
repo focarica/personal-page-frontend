@@ -26,7 +26,7 @@ export class CurriculumPageComponent implements OnInit{
       },
       {
         name: 'ICMP Spoof',
-        description: 'Educational script in Python that demonstrates ARP poisoning and spoofing of ICMP Echo Replies, simulating basic host impersonation and man-in-the-middle attacks in controlled environments.',
+        description: 'Script in Python that demonstrates ARP poisoning and spoofing of ICMP Echo Replies, simulating basic host impersonation and man-in-the-middle attacks in controlled environments.',
         tags: ['networks', 'security', 'scapy', 'protocols'],
         repoUrl: 'https://github.com/focarica/ICMP-Spoof'
       },
