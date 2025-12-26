@@ -18,6 +18,6 @@ export class NavBarComponent{
         { label: 'Home', route: '/' },
         { label: 'Find me', route: '/find-me' },
         { label: 'About', route: '/about' },
-        { label: 'CV', route: '/curriculum' }
+        { label: 'Curriculum', route: '/curriculum' }
     ];
 }
