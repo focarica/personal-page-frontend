@@ -1,15 +1,16 @@
-<section class="mx-auto max-w-3xl px-6 pt-[6vh] pb-[10vh] space-y-8">
-
+<section class="mx-auto max-w-3xl px-6 pt-[4vh] pb-[10vh] space-y-8">
   <div class="max-w-3xl mx-auto">
-    <div id="summary" class="text-lg md:text-xl text-text-secondary leading-relaxed max-w-5xl">
-      Computer science student at Universidade Federal do Piauí.
-    </div>
-    <div id="summary" class="text-lg md:text-xl text-text-secondary leading-relaxed mb-10 max-w-5xl">
-      Focused on backend engineering, cloud infrastructure, and system security.
-      This is a personal space for notes, experiments, and things I’m learning about how systems work, and fail.
+    <div id="summary" class="text-lg md:text-xl mb-10 text-text-secondary leading-relaxed max-w-5xl">
+        <p class="pb-[0.1px]">Computer science student at Universidade Federal do Piauí.</p>      
+        <p>        
+          Focused on backend engineering, cloud infrastructure, and system security.
+          This is a personal space for notes, experiments, and things I’m learning about how systems work, and fail.
+        </p>
     </div>
 
-    <span class="text-2xl md:text-4xl font-primary text-text-primary tracking-wide block mb-2 pb-4 border-b border-gray-400">Recent Posts</span>
+    <span class="text-2xl md:text-4xl font-primary text-text-primary tracking-wide block mb-2 pb-4 border-b border-gray-400">
+      Recent Posts
+    </span>
 
     <div id="post-containers" class="space-y-0">
       @if (hasError()) {
@@ -20,12 +21,19 @@
               Please try again later.
             </span>
           </p>
-          <button
-            class="mt-3 text-lg  underline text-text-muted hover:text-glitch-aqua hover:cursor-pointer"
-            (click)="getAllPosts()"
-          >
-            Try again
-          </button>
+          @if (isLoading()) {
+            <span
+              class="mt-5 inline-block h-4 w-4 animate-spin duration-10000 rounded-full border-2 border-transparent border-t-glitch-aqua">
+            </span>
+          } @else {
+            <button
+              class="mt-3 text-lg underline text-text-muted hover:text-glitch-aqua hover:cursor-pointer transition-all duration-200 flex items-center gap-2"
+              (click)="getAllPosts()"
+              [disabled]="isLoading()"
+            >
+            <span>Try again</span>
+            </button>
+          }
         </div>
 
       } @else if (postsSummary().length > 0) {

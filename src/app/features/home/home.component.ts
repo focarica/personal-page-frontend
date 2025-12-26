@@ -4,6 +4,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterModule, } from '@angular/router';
 import { PostHeaders } from '../../shared/models/PostHeaders';
 import { HttpService } from '../../http.service';
+import { finalize, Observable, take } from 'rxjs';
 @Component({
   selector: 'app-home-page',
   imports: [CommonModule, RouterModule],
@@ -15,6 +16,7 @@ export class HomePageComponent implements OnInit{
 
   postsSummary = signal<PostHeaders[]>([])
   hasError = signal<boolean>(false)
+  isLoading = signal<boolean>(false);
 
   constructor(private router: Router) {}
 
@@ -27,15 +29,25 @@ export class HomePageComponent implements OnInit{
   }
 
   getAllPosts() {
-    this.httpService.findAllPostsSummaryOrdered().subscribe({
-      next: post => {
-        this.postsSummary.set(post);
-        this.hasError.set(false) // so pra ter certeza que nao vai dar erro
-      },
-      error: () => {
-        this.postsSummary.set([]);
-        this.hasError.set(true);
-      }
+    this.isLoading.set(true)
+
+    this.httpService.findAllPostsSummaryOrdered()
+      .pipe(
+        finalize(() => { 
+          setTimeout(() => {
+            this.isLoading.set(false) 
+          }, 300); // pro feedback de usuario que foi tentatdo o novo request
+        })
+      )
+      .subscribe({
+        next: posts => {
+          this.postsSummary.set(posts);
+          this.hasError.set(false) // so pra ter certeza que nao vai dar erro
+        },
+        error: () => {
+          this.postsSummary.set([]);
+          this.hasError.set(true);
+        }
     });
   }
 }

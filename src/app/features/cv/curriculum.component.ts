@@ -20,19 +20,19 @@ export class CurriculumPageComponent implements OnInit{
     projects: Project[] = [
       {
         name: 'AutoTorrent',
-        description: 'Ferramenta em linha de comando que atua como um agregador de buscas em sites de torrent, permitindo pesquisar, filtrar e obter links diretos para download de forma automatizada.',
+        description: 'A command-line tool that acts as a search aggregator for torrent sites, allowing you to search, filter, and obtain direct download links in an automated way.',
         tags: ['automation', 'cli', 'python', 'scraping'],
         repoUrl: 'https://github.com/focarica/AutoTorrent'
       },
       {
         name: 'ICMP Spoof',
-        description: 'Script educacional em Python que demonstra ARP poisoning e spoofing de ICMP Echo Replies, simulando ataques básicos de host impersonation e man-in-the-middle em ambientes controlados.',
+        description: 'Educational script in Python that demonstrates ARP poisoning and spoofing of ICMP Echo Replies, simulating basic host impersonation and man-in-the-middle attacks in controlled environments.',
         tags: ['networks', 'security', 'scapy', 'protocols'],
         repoUrl: 'https://github.com/focarica/ICMP-Spoof'
       },
       {
         name: 'SudokuBot',
-        description: 'Bot de automação web que utiliza Selenium para extrair tabuleiros de Sudoku do site sudokutable.com, resolver os puzzles programaticamente e inserir as respostas de volta na interface.',
+        description: 'Web automation bot that uses Selenium to extract Sudoku boards from the sudokutable.com website, solve the puzzles programmatically, and insert the answers back into the interface.',
         tags: ['automation', 'selenium', 'scraping'],
         repoUrl: 'https://github.com/focarica/SudokuBot'
       }
