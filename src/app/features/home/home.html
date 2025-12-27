@@ -44,28 +44,26 @@
 
             <span class="text-xs text-text-muted tracking-wide">{{ post.date }}</span>
 
-            <div class="flex items-start justify-between gap-6">
-                <a
-                  [routerLink]="['/posts', post.id]"
-                  class="text-xl text-glitch-blue-soft font-medium
-                        group-hover:underline underline-offset-4
-                        max-w-[75%]"
-                >
-                  {{ post.title }}
-                </a>
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 sm:gap-6">
+              <a
+                [routerLink]="['/posts', post.id]"
+                class="text-xl text-glitch-blue-soft font-medium group-hover:underline underline-offset-4 sm:max-w-[75%]"
+              >
+                {{ post.title }}
+              </a>
 
-                <div class="flex flex-wrap gap-2 text-xs text-text-muted">
-                  <span
-                    *ngFor="let tag of post.tags"
-                    class="px-2 py-0.5 border border-white/10 rounded
-                          uppercase tracking-wide
-                          hover:text-glitch-aqua hover:border-glitch-aqua/40
-                          transition"
-                  >
-                    {{ tag }}
-                  </span>
-                </div>
+              <div class="flex flex-wrap gap-2 text-xs text-text-muted sm:justify-end">
+                <span
+                  *ngFor="let tag of post.tags"
+                  class="px-2 py-0.5 mb-1 border border-white/10 rounded
+                        uppercase tracking-wide
+                        hover:text-glitch-aqua hover:border-glitch-aqua/40
+                        transition"
+                >
+                  {{ tag }}
+                </span>
               </div>
+            </div>
 
             <p class="text-text-secondary leading-relaxed">{{ post.description }}</p>
           </article>
