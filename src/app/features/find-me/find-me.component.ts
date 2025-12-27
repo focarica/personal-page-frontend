@@ -52,6 +52,12 @@ export class FindMeComponent implements OnInit{
       url: 'https://letterboxd.com/Foca1/',
       hint: 'what I’ve been watching lately',
       icon: 'letterboxd'
+    },
+    {
+      label: 'Railway',
+      url: 'https://railway.com?referralCode=tIK0Gu',
+      hint: '$20 Free Railway Credits',
+      icon: 'railway'
     }
   ];
 
