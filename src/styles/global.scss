@@ -39,7 +39,7 @@ html, body {
   margin: 0 auto;
 
   padding: 0;
-  line-height: 1.75;
+  line-height: 1.6;
   font-size: 1.05rem;
 
   .post-date {
@@ -63,7 +63,7 @@ html, body {
   h3 {
     font-family: var(--font-body);
     font-weight: 600;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     margin-bottom: 1rem;
   }
 
@@ -83,7 +83,8 @@ html, body {
   }
 
   p {
-    margin: 1.2rem 0;
+    margin: 1rem 0;
+    line-height: 1.6;
   }
 
   blockquote {
@@ -101,8 +102,19 @@ html, body {
     overflow-x: auto;
   }
 
+  pre code {
+    background: none;
+    color: #c9d1d9; /* FORÇA contraste */
+    padding: 0;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    display: block;
+    white-space: pre;
+  }
+
   code {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.08);
+    color: #9ef0ff;
     padding: 0.2em 0.4em;
     border-radius: 4px;
     font-size: 0.95em;
@@ -122,7 +134,8 @@ html, body {
   }
 
   li {
-    margin: 0.5rem 0;
+    margin: 0.35rem 0;
+    line-height: 1.55;
   }
 
   input[type="checkbox"] {
@@ -143,6 +156,7 @@ html, body {
 @media (max-width: 767px) {
   .markdown-body {
     font-size: 1rem;
+    line-height: 1.55;
   }
 }
 
