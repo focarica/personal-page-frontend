@@ -95,16 +95,18 @@ html, body {
     font-style: italic;
   }
 
-  pre {
-    background: var(--color-bg-alt);
+  pre,
+  pre[class*="language-"] {
+    background: var(--color-bg-alt) !important; 
     padding: 1rem 1.2rem;
     border-radius: 6px;
     overflow-x: auto;
+    border: 1px solid rgba(255, 255, 255, 0.04); /* Subtle border for depth */
   }
 
-  pre code {
-    background: none;
-    color: #c9d1d9; /* FORÇA contraste */
+  pre code,
+  pre[class*="language-"] code {
+    background: transparent !important;
     padding: 0;
     font-size: 0.9rem;
     line-height: 1.55;
@@ -112,12 +114,82 @@ html, body {
     white-space: pre;
   }
 
-  code {
-    background: rgba(255, 255, 255, 0.08);
-    color: #9ef0ff;
+  :not(pre) > code {
+    background: var(--color-bg-alt);
+    color: var(--color-glitch-aqua-soft); 
     padding: 0.2em 0.4em;
     border-radius: 4px;
     font-size: 0.95em;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  div.code-toolbar {
+    position: relative;
+
+    > .toolbar {
+      opacity: 1; 
+      top: 0.5rem;
+      right: 0.5rem;
+
+      button {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        color: transparent !important;
+        span { display: none !important; }
+
+        &::after {
+          content: '';
+          display: block;
+          width: 18px;
+          height: 18px;
+          background-color: var(--color-text-secondary); 
+          transition: background-color 0.2s ease, transform 0.2s ease;
+          
+          $icon-copy: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='8' y='8' width='12' height='12' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2'%3E%3C/path%3E%3C/svg%3E";
+          
+          -webkit-mask-image: url($icon-copy);
+          -webkit-mask-size: contain;
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-position: center;
+          
+          mask-image: url($icon-copy);
+          mask-size: contain;
+          mask-repeat: no-repeat;
+          mask-position: center;
+        }
+
+        &:hover,
+        &:focus {
+          background: transparent !important;
+          &::after {
+            background-color: var(--color-glitch-aqua);
+            transform: scale(1.15); 
+          }
+        }
+
+        &[data-copy-state="copy-success"] {
+          &::after {
+            $icon-check: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E";
+            
+            /* Swap the mask */
+            -webkit-mask-image: url($icon-check);
+            mask-image: url($icon-check);
+            
+            background-color: var(--color-success) !important;
+            transform: scale(1.15); 
+          }
+        }
+      }
+    }
   }
 
   ul {
