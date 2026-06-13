@@ -1,59 +1,50 @@
-# PersonalPageFrontend
+# artvniss.com — personal site
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
+Frontend for my personal website. A space for notes, blog posts, and things I'm learning. Built with Angular 21 and Tailwind CSS 4.
 
-## Development server
+## Stack
 
-To start a local development server, run:
+- **Angular 21** — standalone components, signals
+- **Tailwind CSS 4** — utility-first styling
+- **ngx-markdown + Prism.js** — markdown rendering with syntax highlighting
+- **TypeScript 5.9**
 
-```bash
-ng serve
-```
+## Pages
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+| Route | Description |
+|---|---|
+| `/` | Home — latest posts list |
+| `/posts/:id` | Post reader (markdown) |
+| `/about` | About me |
+| `/curriculum` | CV / projects |
+| `/find-me` | Links & contacts |
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Running locally
 
 ```bash
-ng build
+npm install
+npm start
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Opens at `http://localhost:4200`. The app expects a backend at `http://localhost:8080` by default (see `src/environments/environment.ts`).
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Build
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+Output goes to `dist/`. The production environment points to `https://api.artvniss.com`.
 
-For end-to-end (e2e) testing, run:
+## Project structure
 
-```bash
-ng e2e
 ```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+src/
+├── app/
+│   ├── features/        # page components (home, post, about, cv, find-me)
+│   ├── shared/          # navbar, error pages, icons, models
+│   ├── http.service.ts  # API client
+│   └── app.routes.ts    # routing
+├── environments/        # dev / prod config
+└── styles/              # global SCSS + theme
+```
