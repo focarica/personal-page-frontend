@@ -1,4 +1,4 @@
-# artvniss.com — personal site
+# Personal site
 
 Frontend for my personal website. A space for notes, blog posts, and things I'm learning. Built with Angular 21 and Tailwind CSS 4.
 
