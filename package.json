@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "prebuild": "API_URL=${API_URL:-http://localhost:8080} node scripts/gen-sitemap.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
