@@ -16,7 +16,7 @@ export class HttpService {
   }
 
   findAllPostsSummary() {
-    return this.http.get<PostHeaders[]>(`${environment.apiBaseUrl}/api/posts`);
+    return this.http.get<PostHeaders[]>(`${environment.apiBaseUrl}/posts`);
   }
 
   findAllPostsSummaryOrdered() {

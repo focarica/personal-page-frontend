@@ -18,7 +18,7 @@
     <!-- Conteúdo -->
     <section class="markdown-body">
         <span class="post-date">
-            {{ post()!.headers.date }}
+            {{ post()!.headers.date }} · {{ post()!.headers.readingTimeMinutes }} min read
         </span>
 
         <markdown [data]="post()!.content"></markdown>
