@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterModule, } from '@angular/router';
+import { SeoService } from '../../shared/services/seo.service';
 
 export interface Project {
   name: string;
@@ -16,6 +17,8 @@ export interface Project {
   templateUrl: './curriculum.html',
 })
 export class CurriculumPageComponent implements OnInit{
+
+    private seo = inject(SeoService)
 
     projects: Project[] = [
       {
@@ -45,6 +48,7 @@ export class CurriculumPageComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.seo.setPage('CV — Artur Sousa', 'Projects, code, and technical background.', '/curriculum');
   }
 
 }

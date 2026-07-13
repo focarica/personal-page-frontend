@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, inject, OnInit, OnDestroy } from "@angular/core";
 import { RouterModule } from "@angular/router";
+import { SeoService } from "../../services/seo.service";
 
 @Component({
   standalone: true,
@@ -47,8 +48,11 @@ import { RouterModule } from "@angular/router";
     </section>
   `
 })
-export class NotFoundComponent {
+export class NotFoundComponent implements OnInit, OnDestroy {
+  private seo = inject(SeoService)
+
   ngOnInit() {
+    this.seo.setNoindex();
     document.body.style.overflow = 'hidden';
   }
 

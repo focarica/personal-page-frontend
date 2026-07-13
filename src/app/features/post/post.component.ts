@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule, } from '@angular/router';
 import { HttpService } from '../../http.service';
+import { SeoService } from '../../shared/services/seo.service';
 import { Post } from '../../shared/models/Post';
 import { Subscription } from 'rxjs';
 import { MarkdownComponent } from 'ngx-markdown';
@@ -14,6 +15,7 @@ import { MarkdownComponent } from 'ngx-markdown';
 export class PostPageComponent implements OnInit{
 
   private httpService = inject(HttpService)
+  private seo = inject(SeoService)
   private sub?: Subscription;
   
   post = signal<Post | null>(null);
@@ -39,6 +41,7 @@ export class PostPageComponent implements OnInit{
     this.httpService.findPost(id).subscribe({
       next: post => {
         this.post.set(post);
+        this.seo.setPost(post.headers, '/posts/' + id);
       }
     })
   }

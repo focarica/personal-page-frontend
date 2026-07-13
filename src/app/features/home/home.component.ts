@@ -4,7 +4,8 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterModule, } from '@angular/router';
 import { PostHeaders } from '../../shared/models/PostHeaders';
 import { HttpService } from '../../http.service';
-import { finalize, Observable, take } from 'rxjs';
+import { SeoService } from '../../shared/services/seo.service';
+import { finalize } from 'rxjs';
 @Component({
   selector: 'app-home-page',
   imports: [CommonModule, RouterModule],
@@ -13,6 +14,7 @@ import { finalize, Observable, take } from 'rxjs';
 export class HomePageComponent implements OnInit{
 
   private httpService = inject(HttpService)
+  private seo = inject(SeoService)
 
   postsSummary = signal<PostHeaders[]>([])
   hasError = signal<boolean>(false)
@@ -21,6 +23,7 @@ export class HomePageComponent implements OnInit{
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    this.seo.setPage('Artur Sousa', 'Computer science student at UFPI. Notes on backend engineering, cloud infrastructure, and system security.', '/');
     this.getAllPosts()
   }
   
