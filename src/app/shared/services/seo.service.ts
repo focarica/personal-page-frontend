@@ -12,7 +12,7 @@ export class SeoService {
   private meta = inject(Meta);
   private doc = inject(DOCUMENT);
   private siteUrl = environment.siteUrl;
-  private defaultOg = `${this.siteUrl}/assets/og-default.png`;
+  private defaultOg = `${this.siteUrl}/assets/og-default.jpg`;
 
   setPage(title: string, description: string, path: string): void {
     const url = this.siteUrl + path;
