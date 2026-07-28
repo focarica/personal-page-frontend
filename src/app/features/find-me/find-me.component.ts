@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterModule, } from '@angular/router';
-import { HttpService } from '../../http.service';
+import { SeoService } from '../../shared/services/seo.service';
 import { FIND_ME_ICONS } from '../../shared/icons/find-me/find-me-icons';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
@@ -19,6 +19,7 @@ interface FindMeLink {
 })
 export class FindMeComponent implements OnInit{
   
+  private seo = inject(SeoService)
   icons: Record<string, SafeHtml> = {};
   private sanitizer = inject(DomSanitizer);
 
@@ -70,6 +71,7 @@ export class FindMeComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.seo.setPage('Find me — Artur Sousa', 'GitHub, LinkedIn, email and more. All the places I am online.', '/find-me');
     for (const key in FIND_ME_ICONS) {
       this.icons[key] = this.sanitizer.bypassSecurityTrustHtml(
         FIND_ME_ICONS[key]

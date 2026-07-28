@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router, RouterModule, } from '@angular/router';
+import { SeoService } from '../../shared/services/seo.service';
 
 @Component({
   selector: 'app-about-page',
@@ -9,6 +10,8 @@ import { Router, RouterModule, } from '@angular/router';
 })
 export class AboutPageComponent implements OnInit{
 
+  private seo = inject(SeoService)
+
   constructor(private router: Router) {}
 
   navigate(route: string): void {
@@ -16,6 +19,7 @@ export class AboutPageComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.seo.setPage('About — Artur Sousa', 'Software engineering student, backend developer, and systems enthusiast.', '/about');
   }
 
 }
