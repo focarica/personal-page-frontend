@@ -1,4 +1,5 @@
-import { Component, inject, OnInit, OnDestroy } from "@angular/core";
+import { Component, inject, OnInit, OnDestroy, PLATFORM_ID } from "@angular/core";
+import { isPlatformBrowser } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { SeoService } from "../../services/seo.service";
 
@@ -50,13 +51,18 @@ import { SeoService } from "../../services/seo.service";
 })
 export class NotFoundComponent implements OnInit, OnDestroy {
   private seo = inject(SeoService)
+  private platformId = inject(PLATFORM_ID)
 
   ngOnInit() {
     this.seo.setNoindex();
-    document.body.style.overflow = 'hidden';
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = 'hidden';
+    }
   }
 
   ngOnDestroy() {
-    document.body.style.overflow = '';
+    if (isPlatformBrowser(this.platformId)) {
+      document.body.style.overflow = '';
+    }
   }
 }
