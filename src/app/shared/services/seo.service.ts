@@ -15,13 +15,13 @@ export class SeoService {
   private defaultOg = `${this.siteUrl}/assets/og-default.jpg`;
 
   setPage(title: string, description: string, path: string): void {
-    const url = this.siteUrl + path;
+    const url = this.siteUrl + this.withTrailingSlash(path);
     this.title.setTitle(title);
     this.setCommonMeta(description, url, 'website');
   }
 
   setPost(headers: PostHeaders, path: string): void {
-    const url = this.siteUrl + path;
+    const url = this.siteUrl + this.withTrailingSlash(path);
     const pageTitle = `${headers.title} — Artur Sousa`;
     this.title.setTitle(pageTitle);
     this.setCommonMeta(headers.description, url, 'article');
@@ -62,6 +62,10 @@ export class SeoService {
     this.meta.updateTag({ name: 'twitter:image', content: this.defaultOg });
 
     this.upsertCanonical(url);
+  }
+
+  private withTrailingSlash(path: string): string {
+    return path.endsWith('/') ? path : path + '/';
   }
 
   private upsertCanonical(url: string): void {

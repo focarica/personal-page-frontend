@@ -1,7 +1,8 @@
 import { ApplicationConfig, ErrorHandler, provideBrowserGlobalErrorListeners, SecurityContext } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, UrlSerializer } from '@angular/router';
 
 import { routes } from './app.routes';
+import { TrailingSlashUrlSerializer } from './trailing-slash-url-serializer';
 import { provideHttpClient, withInterceptors, withFetch } from '@angular/common/http';
 import { provideMarkdown, SANITIZE } from 'ngx-markdown';
 import { httpErrorInterceptor } from './shared/handlers/HttpErrorInterceptor';
@@ -12,6 +13,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
+    { provide: UrlSerializer, useClass: TrailingSlashUrlSerializer },
     provideHttpClient(
       withFetch(),
       withInterceptors([httpErrorInterceptor])

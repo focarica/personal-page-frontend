@@ -3,6 +3,8 @@ import { writeFileSync } from 'fs';
 const API_URL = process.env.API_URL || 'https://api.artvniss.com';
 const SITE_URL = 'https://artvniss.com';
 
+const withSlash = (path) => (path.endsWith('/') ? path : path + '/');
+
 const staticRoutes = [
   { loc: '/' },
   { loc: '/about' },
@@ -24,9 +26,9 @@ async function main() {
   }
 
   const urls = [
-    ...staticRoutes.map((r) => `  <url><loc>${SITE_URL}${r.loc}</loc></url>`),
+    ...staticRoutes.map((r) => `  <url><loc>${SITE_URL}${withSlash(r.loc)}</loc></url>`),
     ...posts.map(
-      (p) => `  <url><loc>${SITE_URL}/posts/${p.id}</loc><lastmod>${p.date}T00:00:00+00:00</lastmod></url>`
+      (p) => `  <url><loc>${SITE_URL}/posts/${p.id}/</loc><lastmod>${p.date}T00:00:00+00:00</lastmod></url>`
     ),
   ];
 
